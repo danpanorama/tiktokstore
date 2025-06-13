@@ -18,6 +18,8 @@
 <title>המומלצים שלי</title>
 
 
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -25,6 +27,10 @@
       background: #2a65b3;
       margin: 0;
       text-align: center;
+    }
+    .footer{
+      min-height: 3vh;
+      background-color: #262626;
     }
     .navbar{
 
@@ -37,10 +43,19 @@
         background-image: url('./tictok/logoWhite.png');
         background-size: cover;
         object-fit: cover;
-        box-shadow: 0px 5px 50px white;
+        box-shadow: 0px 5px 50px rgb(249, 249, 249);
         border: 2px solid #ffffff;
-        margin-top: 50px;
+       
     }
+
+    .logoDiv {
+  padding: 4px; /* זה העובי של ה"גבול" */
+  background: linear-gradient(45deg, #ff00cc, #3333ff); /* כאן הגרדיאנט */
+  border-radius: 50%; /* אופציונלי */
+  display: inline-block; /* כדי להתאים לגודל התוכן */
+   margin-top: 50px;
+        margin-bottom: 20px;
+}
    
     .grid {
       display: grid;
@@ -53,6 +68,7 @@
       box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.747);
       transition: transform 0.2s;
       border: 1px solid rgb(255, 255, 255);
+   
     }
     .item:hover {
       transform: scale(1.03);
@@ -90,15 +106,60 @@
         color: white;
         direction: ltr;
         margin: 0;
-        margin-bottom: 50px;
+        margin-bottom:30px;
     }
     .radiusBorder{
     background-color: white;
-    padding: 50px 25px;
+    padding: 50px 20px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    min-height: 100vh;
+    min-height: 50vh;
+
     }
+    .image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* יחסי – הופך את הקופסה לריבוע */
+  background: linear-gradient(45deg, #ddd, #ccc);
+  animation: pulse 1.5s infinite;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-wrapper.loaded {
+  animation: none;
+  background: none;
+}
+
+.image-wrapper.loaded img {
+  opacity: 1;
+}
+.copywrite{
+  margin: 0;
+  padding: 5px;
+  color: white;
+  font-weight: 100;
+}
+.linkToDanz{
+  color: royalblue;
+  
+}
+
+@keyframes pulse {
+  0% { background-color: #eee; }
+  50% { background-color: #ddd; }
+  100% { background-color: #eee; }
+}
+
 
 @media only screen and (min-width: 600px) {
   .pc_container {
@@ -111,65 +172,107 @@
       gap: 20px;
       padding: 10px;
     }
+    .item{
+         min-height: auto;
+      min-width:auto;
+    }
   
 }
+
+
+.checkMark{
+  height: 10px;
+  width: 10px;
+  background-image: url('./bluecheck.png');
+  background-size: cover;
+  object-fit: cover;
+}
+
+
+
    
   </style>
 </head>
 <body>
 <div class="pc_container">
-  <!-- <nav class="navbar">
-    <div class="logo"></div>
-    <div class="menuIcon">
 
-    </div>
-  </nav> -->
+  <!-- <p style="color: white; font-size: 18px;">
+  @gadgetking
+
+</p> -->
  <div class="logo_container">
-       <div class="logo">
+       <div class="logoDiv">
+        <div class="logo">
+
+         
+        </div>
 
     </div>
  </div>
- <p class="name">@gadgetking</p>
+ 
+
+
+ <p class="name">@gadgetking   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"
+       alt="Verified Badge"
+       style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"></p>
       <!-- <h1>המוצרים שאני ממליץ עליהם 👇</h1> -->
       <br>
  <div class="radiusBorder">
-   <div class="grid ">
-    <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_ol2VSIm" target="_blank">
-        <img class="img1" src="https://ae-pic-a1.aliexpress-media.com/kf/S2e8a112fe17949e88521472342009003Z.jpg_220x220q75.jpg_.avif" alt="מוצר 1">
-      </a>
-    </div>
-    <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_opleXDc" target="_blank">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sdf215f6c374e43b7a41d67eba534edb3Y.jpg_960x960q75.jpg_.avif" alt="מוצר 2">
-      </a>
-    </div>
+<div class="grid" id="productsGrid"></div>
 
-     <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_ooeeiE6" target="_blank">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sfc7cac7169ab4f3cb37c60ea07e82ec5u.jpg_960x960q75.jpg_.avif" alt="מוצר 2">
-      </a>
-    </div>
-     <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_olAqwL8" target="_blank">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sc11ebbf35cc246c091d419795227b8beb.jpg_960x960q75.jpg_.avif" alt="מוצר 2">
-      </a>
-    </div>
-
-     <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_oDhk3Ua" target="_blank">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S637643940806497f966cf136aa7817a13.jpg_220x220q75.jpg_.avif" alt="מוצר 2">
-      </a>
-    </div>
-
-
-        <div class="item">
-      <a href="https://s.click.aliexpress.com/e/_oCNsgea" target="_blank">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S6c2ac4ce87524129aa47f6120a86ec9dl.jpg_960x960q75.jpg_.avif" alt="מוצר 2">
-      </a>
-    </div>
-  </div>
  </div>
 </div>
+<div class="footer">
+<p class="copywrite">כל הזכויות שמורות ל &copy;
+<a href="" class="linkToDanz">Danz אתרים</a></p>
+</div>
+
+<script>
+  const products = [
+    {
+      link: "https://s.click.aliexpress.com/e/_ol2VSIm",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/S2e8a112fe17949e88521472342009003Z.jpg_220x220q75.jpg_.avif",
+    },
+    {
+      link: "https://s.click.aliexpress.com/e/_opleXDc",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/Sdf215f6c374e43b7a41d67eba534edb3Y.jpg_960x960q75.jpg_.avif",
+    },
+    {
+      link: "https://s.click.aliexpress.com/e/_ooeeiE6",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/Sfc7cac7169ab4f3cb37c60ea07e82ec5u.jpg_960x960q75.jpg_.avif",
+    },
+    {
+      link: "https://s.click.aliexpress.com/e/_olAqwL8",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/Sc11ebbf35cc246c091d419795227b8beb.jpg_960x960q75.jpg_.avif",
+    },
+    {
+      link: "https://s.click.aliexpress.com/e/_oDhk3Ua",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/S637643940806497f966cf136aa7817a13.jpg_220x220q75.jpg_.avif",
+    },
+    {
+      link: "https://s.click.aliexpress.com/e/_oCNsgea",
+      img: "https://ae-pic-a1.aliexpress-media.com/kf/S6c2ac4ce87524129aa47f6120a86ec9dl.jpg_960x960q75.jpg_.avif",
+    }
+  ];
+
+  const container = document.getElementById("productsGrid");
+
+products.map(product => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  item.innerHTML = `
+    <a href="${product.link}" target="_blank">
+      <div class="image-wrapper">
+        <img src="${product.img}" alt="מוצר" onload="this.parentElement.classList.add('loaded')" />
+      </div>
+    </a>
+  `;
+
+  container.appendChild(item);
+});
+
+</script>
+
 </body>
 </html>
