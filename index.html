@@ -9,19 +9,25 @@
 <meta property="og:title" content="המוצרים הכי מגניבים ברשת!">
 <meta property="og:description" content="כל מה שאתם צריכים לבית, לרכב ולחיים בקליק אחד – באחריות!">
 <meta property="og:image" content="https://gadgetking.netlify.app/tictok/logoWhite.png">
+<link rel="icon" href="./tictok/logoBlack.png"  type="image/png">
 <meta property="og:url" content="https://gadgetking.netlify.app">
 <meta property="og:type" content="website">
 <meta name="description" content="מגוון מוצרים שווים בטירוף – דברים שאתם חייבים אצלכם בבית!">
 <meta name="theme-color" content="#262626">
+
 <title>המומלצים שלי</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #262626;
+      background: #2a65b3;
       margin: 0;
-      padding: 20px;
       text-align: center;
+    }
+    .navbar{
+
     }
     .logo{
         height: 100px;
@@ -31,19 +37,20 @@
         background-image: url('./tictok/logoWhite.png');
         background-size: cover;
         object-fit: cover;
-        box-shadow: 0px 5px 30px white;
+        box-shadow: 0px 5px 50px white;
+        border: 2px solid #ffffff;
+        margin-top: 50px;
     }
-    h1 {
+    /* h1 {
       margin-bottom: 20px;
       color: white;
       margin-top: 50px;
-       font-family: "Open Sans", sans-serif;
-    }
+      font-family: "Open Sans", sans-serif;
+    } */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr ;
       gap: 15px;
-
     }
     .item {
       border-radius: 12px;
@@ -66,9 +73,10 @@
  
     }
     .container{
-        width: 95% ;
+        width: 100% ;
         margin: 0 auto;
     }
+    
     .logo_container{
         display: flex;
         flex-direction: column;
@@ -86,11 +94,27 @@
     .name{
         color: white;
         direction: ltr;
+        margin: 0;
+        margin-bottom: 50px;
+    }
+    .radiusBorder{
+      /* padding-top: 20px; */
+    background-color: white;
+    padding: 50px 25px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    min-height: 100vh;
     }
   </style>
 </head>
 <body>
-<div class="container">
+<div class="">
+  <!-- <nav class="navbar">
+    <div class="logo"></div>
+    <div class="menuIcon">
+
+    </div>
+  </nav> -->
  <div class="logo_container">
        <div class="logo">
 
@@ -99,7 +123,8 @@
  <p class="name">@gadgetking</p>
       <!-- <h1>המוצרים שאני ממליץ עליהם 👇</h1> -->
       <br>
-  <div class="grid">
+ <div class="radiusBorder">
+   <div class="grid ">
     <div class="item">
       <a href="https://s.click.aliexpress.com/e/_ol2VSIm" target="_blank">
         <img class="img1" src="https://ae-pic-a1.aliexpress-media.com/kf/S2e8a112fe17949e88521472342009003Z.jpg_220x220q75.jpg_.avif" alt="מוצר 1">
@@ -122,6 +147,7 @@
       </a>
     </div>
   </div>
+ </div>
 </div>
 </body>
 </html>
